@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Elementos de formulário</title>
+    <link rel="stylesheet" href="form.css">
+
+    <script lang="Javascript">
+
+      function pro()
+        {
+            var Pron,nome, email, cursos, periodo, datain, ext, nivsat, o, o2;
+
+            pron = document.frmDados.Pron.value;
+            nome = document.frmDados.Nome.value;
+            email = document.frmDados.email.value;
+            datain = document.frmDados.data.value;
+            periodo = document.frmDados.perio.value;
+
+
+            if(periodo == "m")
+            {
+            periodo = "Manhã";
+            }
+            else
+            {
+                o = "Manhã";
+            }
+            if(periodo == "t")
+            {
+            periodo = "Tarde";
+            }
+            else
+            {
+                if(o == "Manhã")
+                {
+                    o2 = "Tarde"
+                }
+                else
+                {
+                    o = "Tarde"
+                }
+            }
+            if(periodo == "n")
+            {
+            periodo = "Noite";
+            }
+            else
+            {
+                if(o == "Tarde")
+                {
+                    o2 = "Noite"
+                }
+                else
+                {
+                    o2 = "Noite"
+                }
+            }
+
+
+            cursos = document.frmDados.Cursos.value;
+
+            if(cursos == 'I')
+            {
+                cursos = "Técnico Em Informática Integrado ao Ensino Médio"
+            }
+            if(cursos == 'E')
+            {
+                cursos = "Técnico Em Eventos Integrado ao Ensino Médio"
+            }
+            if(cursos == 'BE')
+            {
+                cursos = "Bacharelado Em Engenharia De Controle E Automação"
+            }
+            if(cursos == 'EJA')
+            {
+                cursos = 'Ensino Médio EJA'
+            }
+            if(cursos == 'BT')
+            {
+                cursos = "Bacharelado Em Turismo"
+            }
+            if(cursos == 'TAD')
+            {
+                cursos = "Tecnologia Em Análise E Desenvolvimento De Sistema"
+            }
+            if(cursos == 'TA')
+            {
+                cursos = "Tecnologia Em Automação Industrial"
+            }
+            if(cursos == 'LL')
+            {
+                cursos = "Licenciatura Em Letras - Habilitação Em Língua Portuguesa"
+            }
+            if(cursos == 'LM')
+            {
+                cursos = "Licenciatura Em Matemática"
+            }
+
+            ext = "";
+            ext += (document.frmDados.interesse1.checked?document.frmDados.interesse1.value:"");
+            ext += ((document.frmDados.interesse2.checked&&ext!="")?", ":"");
+            ext += (document.frmDados.interesse2.checked?document.frmDados.interesse2.value:"");
+            ext += ((document.frmDados.interesse3.checked&&ext!="")?", ":"");
+            ext += (document.frmDados.interesse3.checked?document.frmDados.interesse3.value:"");
+            
+            nivsat = document.frmDados.nivsat.value; 
+
+            document.write("<center>")
+
+            document.write("<table border='1' width='500' height='600'>")
+
+            document.write("<tr>")
+            document.write("<td colspan='1' align='center' width='160' height='170'><img width='150' height='160' src='ifsp.jpeg'></td>"); 
+            document.write("<td colspan='2'><h3 align='center'>Formulário de Inscrição</h3></td>"); 
+            document.write("</tr>")
+            
+            document.write("<tr>")
+            document.write("<td colspan='2' width='200' height='50'><p>Prontuario:" + pron + "</p></td>");
+            document.write("<td colspan='1' ><p'>Nível de satisfação: " + nivsat + "%</p></td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td colspan='3'><p>Nome: " + nome + "</p></td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td colspan='3'><p>E-mail: " + email + "</p></td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td colspan='2' height='50'><p>Curso:</p>" + cursos + "</td>");
+            document.write("<td colspan='1' height='50'><p>Data de Ingresso:</p> " + datain + "</td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td colspan='3'><p>Periodo:</p></td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td width='166' align='center'><p> (X)"+ periodo + " </p></td>");
+            document.write("<td width='166' align='center'><p> ( )" + o + "</p></td>");
+            document.write("<td width='166' align='center'><p> ( )"  + o2 + "</p></td>");
+            document.write("</tr>") 
+
+            document.write("<tr>")
+            document.write("<td colspan='3'><p>Extensão:</p></td>");
+            document.write("</tr>")
+
+            document.write("<tr>")
+            document.write("<td colspan='3'><p>"+ ext +"</p></td>");
+            document.write("</tr>")
+
+            document.write("</table>")
+            
+            document.write("</center>")
+        }  
+    </script>
+</head>
+<body>
+    <form name="frmDados">
+        Prontuário: <input type="text" name="Pron" value="Informe seu Prontuário"><br>
+        
+        Nome: <input type="text" name="Nome" value="Informe seu nome"><br>
+        
+        E-mail institucional: <input type="email" name="email" value="Informe@seuemail.aqui"><br>
+       
+        <div>
+        Cursos: 
+              <select name="Cursos">
+                 <option value="I">Técnico Integrado ao Ensino Médio (Informática)</option>
+                 <option value="E">Técnico Integrado ao Ensino Médio (Eventos)</option>
+                 <option value="EJA">Ensino Médio EJA</option>
+                 <option value="BE">Bacharelado Em Engenharia De Controle E Automação</option>
+                 <option value="BT">Bacharelado Em Turismo</option>
+                 <option value="TAD">Tecnologia Em Análise E Desenvolvimento De Sistema</option>
+                 <option value="TA">Tecnologia Em Automação Industrial</option>
+                 <option value="LL">Licenciatura Em Letras - Habilitação Em Língua Portuguesa</option>
+                 <option value="LM">Licenciatura Em Matemática</option>
+              </select><br>
+        </div>
+       
+        <div>
+       Periodo: 
+        <input type="radio" name="perio" value="m" checked>Manhã
+        <input type="radio" name="perio" value="t"> Tarde
+        <input type="radio" name="perio" value="n"> Noite<br> 
+        </div>
+        
+        <div>
+        Data de ingresso: <input type="date" name="data"><br>
+        </div>
+        
+        <div>
+        Extensão:<br>
+        musica<input type="checkbox" name="interesse1" value="musica"> 
+        pintura<input type="checkbox" name="interesse2" value="pintura">
+        teatro<input type="checkbox" name="interesse3" value="teatro"> <br>
+        </div>
+        
+        <div>
+        Nível de satisfação: <input type="range" name="nivsat" min="0" max="100"><br>
+        </div>
+    
+        <input type="button" class="submit button" value="OK" onclick="pro();">
+        <input type="reset" class="resetbtn button" value="Limpar"><br>
+    </form>
+    
+</body>
+</html>
